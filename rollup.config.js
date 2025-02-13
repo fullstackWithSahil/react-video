@@ -28,8 +28,10 @@ export default [
             commonjs(),
             typescript({ tsconfig: './tsconfig.json' }),
             postcss({
-                extensions: ['.css'],
+                config: true,
                 minimize: true,
+                modules: false,
+                extract: false,
                 inject: true
             }),
             terser()
@@ -41,4 +43,4 @@ export default [
         output: [{ file: PackageJson.types }],
         plugins: [dts()]
     }
-];
+]
